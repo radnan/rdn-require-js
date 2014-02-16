@@ -15,7 +15,7 @@ return array(
 		'library' => '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js',
 
 		'config' => array(
-			'baseUrl' => '/modules',
+			'baseUrl' => '',
 
 			'paths' => array(),
 
