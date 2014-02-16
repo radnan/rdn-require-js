@@ -15,11 +15,12 @@ class RequireJS extends AbstractFactory
 		if (PHP_SAPI == 'cli')
 		{
 			$helpers = $this->service('ViewHelperManager');
-			$config['config']['baseUrl'] = call_user_func($helpers->get('BasePath'), rtrim($config['config']['baseUrl'], '/'));
+			$basePath = $helpers->get('BasePath');
+
+			$config['config']['baseUrl'] = call_user_func($basePath, rtrim($config['config']['baseUrl'], '/'));
+			$config['library'] = call_user_func($basePath, $config['library']);
 		}
 
-		$library = $config['config']['baseUrl'] .'/'. ltrim($config['library'], '/');
-
-		return new Helper\RequireJS(new ConfigScript($config), $library);
+		return new Helper\RequireJS(new ConfigScript($config['config']), $config['library']);
 	}
 }
