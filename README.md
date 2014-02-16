@@ -1,7 +1,7 @@
 RdnRequireJS
 ============
 
-The **RdnRequireJS** ZF2 module integrates the [RequireJS](http://requirejs.org/) library into your ZF2 project.
+The **RdnRequireJS** ZF2 module integrates the [RequireJS](http://requirejs.org/) library into your project.
 
 ## How to install
 
@@ -47,6 +47,25 @@ Then, in your view templates, call the `requireJS($name)` view helper with the m
 
 The view helper will include the RequireJS library along with the requested modules as inline scripts.
 
+### Code completion
+
+If you'd like to have code completion for this helper, include the following in your <code>PhpRenderer</code> class:
+
+~~~php
+namespace App\View\Renderer;
+
+use Zend\View\Renderer\PhpRenderer as ZendPhpRenderer;
+
+/**
+ * @method requireJS(\string $dependencies = array())
+ */
+class PhpRenderer extends ZendPhpRenderer
+{
+}
+~~~
+
+Then, simply type hint the `$this` variable to this class in your view templates.
+
 ### Multiple dependencies
 
 You can call the view helper multiple times and it will keep appending the module dependencies. You can also provide an array to include multiple deps at a time:
@@ -59,7 +78,7 @@ You can call the view helper multiple times and it will keep appending the modul
 
 ## Library
 
-The **RequireJS** library is, by default, included from [cdnjs](http://cdnjs.com/). You can configure this using the `rdn_require_js.library` configuration option:
+The **RequireJS** library is, by default, included from [cdnjs](http://cdnjs.com/). You can configure this using the `rdn_require_js.library` option:
 
 ~~~php
 <?php
