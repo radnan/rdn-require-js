@@ -21,6 +21,16 @@ class RequireJS extends AbstractFactory
 			$config['library'] = call_user_func($basePath, $config['library']);
 		}
 
+		foreach ($config['config']['paths'] as $name => $spec)
+		{
+			if (!is_array($spec))
+			{
+				continue;
+			}
+
+			$config['config']['paths'][$name] = array_values($spec);
+		}
+
 		return new Helper\RequireJS(new ConfigScript($config['config']), $config['library']);
 	}
 }
