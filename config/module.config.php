@@ -12,7 +12,7 @@ return array(
 	),
 
 	'rdn_require_js' => array(
-		'library' => 'rdn-require-js/js/require-2.1.9.js',
+		'library' => '//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js',
 
 		'config' => array(
 			'baseUrl' => '/modules',
