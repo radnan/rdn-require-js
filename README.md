@@ -47,6 +47,16 @@ Then, in your view templates, call the `requireJS($name)` view helper with the m
 
 The view helper will include the RequireJS library along with the requested modules as inline scripts.
 
+### Multiple dependencies
+
+You can call the view helper multiple times and it will keep appending the module dependencies. You can also provide an array to include multiple deps at a time:
+
+~~~php
+/** @var Zend\View\Renderer\PhpRenderer $this */
+
+<?php $this->requireJS(['Bar', 'Baz']) ?>
+~~~
+
 ### Code completion
 
 If you'd like to have code completion for this helper, include the following in your <code>PhpRenderer</code> class:
@@ -65,16 +75,6 @@ class PhpRenderer extends ZendPhpRenderer
 ~~~
 
 Then, simply type hint the `$this` variable to this class in your view templates.
-
-### Multiple dependencies
-
-You can call the view helper multiple times and it will keep appending the module dependencies. You can also provide an array to include multiple deps at a time:
-
-~~~php
-/** @var Zend\View\Renderer\PhpRenderer $this */
-
-<?php $this->requireJS(['Bar', 'Baz']) ?>
-~~~
 
 ## Library
 
