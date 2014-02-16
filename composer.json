@@ -1,0 +1,19 @@
+{
+	"name": "radnan/rdn-require-js",
+	"description": "Zend Framework 2 RequireJS module",
+	"keywords": ["zf2", "zend", "requireJS"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "radnan",
+			"email": "rafiadnan47@gmail.com"
+		}
+	],
+	"require": {
+	},
+	"autoload": {
+		"psr-0": {
+			"RdnRequireJS\\": "src/"
+		}
+	}
+}
