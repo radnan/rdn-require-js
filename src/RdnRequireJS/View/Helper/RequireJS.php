@@ -61,7 +61,7 @@ class RequireJS extends AbstractHelper
 	{
 		$this->config->addDependencies($dependencies);
 
-		if ($this->libraryIncluded)
+		if (!$this->libraryIncluded)
 		{
 			$this->view->inlineScript()
 				->appendScript($this->config)
