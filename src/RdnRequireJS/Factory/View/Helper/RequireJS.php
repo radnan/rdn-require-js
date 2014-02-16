@@ -3,6 +3,7 @@
 namespace RdnRequireJS\Factory\View\Helper;
 
 use RdnFactory\AbstractFactory;
+use RdnRequireJS\ConfigScript;
 use RdnRequireJS\View\Helper;
 
 class RequireJS extends AbstractFactory
