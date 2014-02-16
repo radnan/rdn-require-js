@@ -12,7 +12,7 @@ class RequireJS extends AbstractFactory
 	{
 		$config = $this->config('rdn_require_js');
 
-		if (PHP_SAPI == 'cli')
+		if (PHP_SAPI != 'cli')
 		{
 			$helpers = $this->service('ViewHelperManager');
 			$basePath = $helpers->get('BasePath');
