@@ -18,7 +18,11 @@ class RequireJS extends AbstractFactory
 			$basePath = $helpers->get('BasePath');
 
 			$config['config']['baseUrl'] = call_user_func($basePath, rtrim($config['config']['baseUrl'], '/'));
-			$config['library'] = call_user_func($basePath, $config['library']);
+
+			if (parse_url($config['library'], PHP_URL_HOST) === null)
+			{
+				$config['library'] = call_user_func($basePath, $config['library']);
+			}
 		}
 
 		foreach ($config['config']['paths'] as $name => $spec)
